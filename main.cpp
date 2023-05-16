@@ -4,7 +4,7 @@
 #include <functional>
 #include <string>
 using namespace std;
-
+using namespace chrono;
 int main() {
     int size = 100;
     float timer;
@@ -21,16 +21,16 @@ int main() {
 
         int *arr = new int[size];
 
-        chrono::duration<float> res_time; // переменная времени
+        duration<float> res_time; // переменная времени
 
         for (int h = 0; h<6; h++) {
             if(check[h]<=20) {
                 for (int q = 0; q < size; q++) {
                     arr[q] = rand();
                 }
-                auto start = std::chrono::high_resolution_clock::now(); //
+                auto start = high_resolution_clock::now(); //
                 func[h](arr,size);
-                auto end = std::chrono::high_resolution_clock::now();
+                auto end = high_resolution_clock::now();
                 res_time = end - start;
 
                 timer=res_time.count();;

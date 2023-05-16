@@ -11,15 +11,6 @@ void insertSort(int* a, int n){
         }
     }
 }
-/*void test_Sort(int* arr, int size) {
-    for (int k = 0; k < size - 1; k++) {
-        if ((arr[k + 1] - arr[k]) < 0) {
-            std::cout << "test 1 is BAD" << std::endl;
-            break;
-        }
-    }
-}
- */
 void bubbleSort (int* arr, int size){
     for(int k=0;k<size;k++){
         for(int j=0;j<k;j++){
@@ -35,31 +26,24 @@ void bubbleSort (int* arr, int size){
 void countSort(int* ar, int n) {
     int* arr1 = new int[n];
     int x = ar[0];
-
     for (int i = 1; i < n; i++) {
         if (ar[i] > x)
             x = ar[i];
     }
-
     int* count_arr = new int[x+1];
-
     for (int i = 0; i <= x; ++i) {
         count_arr[i] = 0;
     }
-
     for (int i = 0; i < n; i++) {
         count_arr[ar[i]]++;
     }
-
     for (int i = 1; i <= x; i++) {
         count_arr[i] += count_arr[i - 1];
     }
-
     for (int i = n - 1; i >= 0; i--) {
         arr1[count_arr[ar[i]] - 1] = ar[i];
         count_arr[ar[i]]--;
     }
-
     for (int i = 0; i < n; i++) {
         ar[i] = arr1[i];
     }
@@ -86,7 +70,6 @@ int partition(int* arr, int first, int last) {
     }
     return j;
 }
-
 void quickSort1(int* arr, int first, int last) {
     if (first < last) {
         int p = partition(arr, first, last);
@@ -170,5 +153,4 @@ void gnomeSort(int arr[], int n)
             index--;
         }
     }
-    return;
 }
